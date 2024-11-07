@@ -11,26 +11,31 @@ import java.util.List;
 @Service
 public class GerenteService implements GerenteInPort {
 
-    private GerenteOutPort gerenteOutPort;
+    private final GerenteOutPort gerenteOutPort;
+
+    public GerenteService(GerenteOutPort gerenteOutPort) {
+        this.gerenteOutPort = gerenteOutPort;
+    }
 
     @Override
-    public Gerente crear(GerenteRequestDTO gerenteRequestDTO) {
-        return null;
+    public Gerente crear(Gerente gerenteRequestDTO) {
+        return gerenteOutPort.crear(gerenteRequestDTO);
     }
 
     @Override
     public List<Gerente> listarGerentes() {
-        return List.of();
+        return gerenteOutPort.listarGerentes();
     }
 
     @Override
     public Gerente obtenerPorIdOrganizacionGerente(Long idOrganizacionGerente) {
-        return null;
+        return gerenteOutPort.obtenerPorIdOrganizacionGerente(idOrganizacionGerente);
     }
 
     @Override
-    public Gerente actualizar(GerenteRequestDTO gerenteRequestDTO) {
-        return null;
+    public Gerente actualizar(Long idOrganizacionGerente, Gerente gerenteRequestDTO) {
+        gerenteRequestDTO.setIdOrganizacionGerente(idOrganizacionGerente);
+        return gerenteOutPort.actualizar(gerenteRequestDTO);
     }
 
     @Override

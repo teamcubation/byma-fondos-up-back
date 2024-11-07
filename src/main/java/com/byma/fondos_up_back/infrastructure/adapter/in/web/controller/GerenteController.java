@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,7 +30,7 @@ public class GerenteController {
 
     @PostMapping("")
     public ResponseEntity<GerenteResponseDTO> crear(@RequestBody @Valid GerenteRequestDTO gerenteRequestDTO) {
-        Gerente gerenteCreado = gerenteInPort.crear(gerenteRequestDTO);
+        Gerente gerenteCreado = gerenteInPort.crear(GerenteControllerMapper.gerenteRequestDTOToGerente(gerenteRequestDTO));
         return ResponseEntity.ok().body(GerenteControllerMapper.gerenteToGerenteResponseDTO(gerenteCreado));
     }
 
@@ -43,6 +44,12 @@ public class GerenteController {
     public ResponseEntity<GerenteResponseDTO> obtenerPorIdOrganizacionGerente(@PathVariable Long idOrganizacionGerente) {
         Gerente gerente = gerenteInPort.obtenerPorIdOrganizacionGerente(idOrganizacionGerente);
         return ResponseEntity.ok().body(GerenteControllerMapper.gerenteToGerenteResponseDTO(gerente));
+    }
+
+    @PutMapping("/{idOrganizacionGerente}")
+    public ResponseEntity<GerenteResponseDTO> actualizar(@PathVariable Long idOrganizacionGerente, @RequestBody @Valid GerenteRequestDTO gerenteRequestDTO) {
+        Gerente gerenteActualizado = gerenteInPort.actualizar(idOrganizacionGerente, GerenteControllerMapper.gerenteRequestDTOToGerente(gerenteRequestDTO));
+        return ResponseEntity.ok().body(GerenteControllerMapper.gerenteToGerenteResponseDTO(gerenteActualizado));
     }
 
     @DeleteMapping("/{idOrganizacionGerente}")

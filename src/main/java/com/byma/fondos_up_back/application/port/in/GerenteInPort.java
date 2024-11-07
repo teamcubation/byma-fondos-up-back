@@ -7,13 +7,13 @@ import java.util.List;
 
 public interface GerenteInPort {
 
-    Gerente crear(GerenteRequestDTO gerenteRequestDTO);
+    Gerente crear(Gerente gerenteRequestDTO);
 
     List<Gerente> listarGerentes();
 
     Gerente obtenerPorIdOrganizacionGerente(Long idOrganizacionGerente);
 
-    Gerente actualizar(GerenteRequestDTO gerenteRequestDTO);
+    Gerente actualizar(Long idOrganizacionGerente,Gerente gerenteRequestDTO);
 
     void eliminar(Long idOrganizacionGerente);
 }
