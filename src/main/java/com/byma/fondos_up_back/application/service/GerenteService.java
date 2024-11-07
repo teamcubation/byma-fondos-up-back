@@ -40,6 +40,6 @@ public class GerenteService implements GerenteInPort {
 
     @Override
     public void eliminar(Long idOrganizacionGerente) {
-
+        gerenteOutPort.eliminar(idOrganizacionGerente);
     }
 }
