@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GerenteResponseDTO {
-    private Integer idRegistro;
-    private Integer idOrganizacionGerente;
+    private Long idRegistro;
+    private Long idOrganizacionGerente;
     private String denominacion;
     private Boolean liquidaEnByma;
     private Boolean habilitado;

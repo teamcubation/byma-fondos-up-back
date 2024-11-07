@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Gerente {
 
-    private Integer idRegistro;
-    private Integer idOrganizacionGerente;
+    private Long idRegistro;
+    private Long idOrganizacionGerente;
     private String denominacion;
     private boolean liquidaEnByma;
     private boolean habilitado;
