@@ -12,6 +12,7 @@ public class GerenteControllerMapper {
         Validador.validadorParametrosNull(gerenteRequestDTO);
         return Gerente.builder()
                 .idOrganizacionGerente(gerenteRequestDTO.getIdOrganizacionGerente())
+                .idRegistro(gerenteRequestDTO.getIdRegistro())
                 .denominacion(gerenteRequestDTO.getDenominacion())
                 .liquidaEnByma(gerenteRequestDTO.getLiquidaEnByma())
                 .habilitado(gerenteRequestDTO.getHabilitado())
