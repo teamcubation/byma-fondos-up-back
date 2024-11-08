@@ -1,12 +1,15 @@
 package com.byma.fondos_up_back.infrastructure.adapter.in.web.mapper;
 
+import com.byma.fondos_up_back.application.validation.Validador;
 import com.byma.fondos_up_back.domain.model.Gerente;
 import com.byma.fondos_up_back.infrastructure.adapter.in.web.dto.request.GerenteRequestDTO;
 import com.byma.fondos_up_back.infrastructure.adapter.in.web.dto.response.GerenteResponseDTO;
 
 public class GerenteControllerMapper {
 
-    public static Gerente gerenteRequestDTOToGerente(GerenteRequestDTO gerenteRequestDTO) {
+    public static Gerente gerenteRequestDtoAGerente(GerenteRequestDTO gerenteRequestDTO) {
+
+        Validador.validadorParametrosNull(gerenteRequestDTO);
         return Gerente.builder()
                 .idOrganizacionGerente(gerenteRequestDTO.getIdOrganizacionGerente())
                 .denominacion(gerenteRequestDTO.getDenominacion())
@@ -17,7 +20,9 @@ public class GerenteControllerMapper {
                 .build();
     }
 
-    public static GerenteResponseDTO gerenteToGerenteResponseDTO(Gerente gerente) {
+    public static GerenteResponseDTO gerenteAGerenteResponseDTO(Gerente gerente) {
+
+        Validador.validadorParametrosNull(gerente);
         return GerenteResponseDTO.builder()
                 .idRegistro(gerente.getIdRegistro())
                 .idOrganizacionGerente(gerente.getIdOrganizacionGerente())
@@ -28,4 +33,6 @@ public class GerenteControllerMapper {
                 .observaciones(gerente.getObservaciones())
                 .build();
     }
+
+
 }
