@@ -12,8 +12,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class GerenteRequestDTO {
+    private Long idOrganizacionGerente;
     @NotNull
-    private long idOrganizacionGerente;
+    private Long idRegistro;
     @NotNull
     @NotBlank
     private String denominacion;
