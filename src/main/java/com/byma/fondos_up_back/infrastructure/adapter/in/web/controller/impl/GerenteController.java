@@ -1,4 +1,4 @@
-package com.byma.fondos_up_back.infrastructure.adapter.in.web.controller;
+package com.byma.fondos_up_back.infrastructure.adapter.in.web.controller.impl;
 
 import com.byma.fondos_up_back.application.port.in.GerenteInPort;
 import com.byma.fondos_up_back.application.validation.Validador;
